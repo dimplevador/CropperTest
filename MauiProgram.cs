@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-using CropperTest.Data;
-
+using Cropper.Blazor.Extensions;
 namespace CropperTest;
 
 public static class MauiProgram
@@ -22,8 +21,8 @@ public static class MauiProgram
 		builder.Logging.AddDebug();
 #endif
 
-		builder.Services.AddSingleton<WeatherForecastService>();
-
+		builder.Services.AddCropper();
+		
 		return builder.Build();
 	}
 }

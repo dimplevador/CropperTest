@@ -1,0 +1,30 @@
+﻿@page "/CropperDemo"
+
+@using Cropper.Blazor.Components
+@using Cropper.Blazor.Models
+
+
+<h3>Cropper</h3>
+
+<div style="width: 100%; max-width: 600px;">
+    <CropperComponent 
+        Class="cropper-container"
+        @ref="_cropperComponent"
+        Src="@_src"
+        Options="_options" 
+    />
+</div>
+
+@inject IJSRuntime JsRuntime
+@code {
+    private CropperComponent? _cropperComponent = null!;
+    private Options _options = new Options()
+    {
+        DragMode = DragMode.Move.ToString().ToLower(),
+        AspectRatio = 1,
+        ViewMode = ViewMode.Vm2,
+        MinCropBoxHeight = 100,
+        MinCropBoxWidth = 100,
+    };
+    private string? _src = "./images/lion.jpg";
+}
